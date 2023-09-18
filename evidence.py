@@ -9,7 +9,7 @@ class Evidence:
         self.ident_number = ident_number
         self.status = status
         self.evidence_pojistencu = evidence_pojistencu or []
-        self.current_ident_number = 1010  # Počáteční hodnota ident_number --> pridano
+        self.current_ident_number = 1000  # Počáteční hodnota ident_number --> pridano
 
     @staticmethod
     def format_header():

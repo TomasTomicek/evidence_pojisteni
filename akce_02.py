@@ -15,13 +15,15 @@ class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vy
         while True:
             print(
                 "Vyber si číslo/parametr, podle kterého budeš hledat:\n"
-                "0 - Vypsát všechny pojíštěné\n"
+                "0 - Vypsát všechny aktivní pojíštěné\n"
                 "1 - Vypsát všechny smazané pojíštěné\n"
                 "2 - Jméno\n"
                 "3 - Příjmení\n"
                 "4 - Předvolba\n"
                 "5 - Telefonní číslo\n"
                 "6 - Věk\n"
+                "\n"
+                "q - Konec"
             )
             volba = input("Zde napiš výběr:    ")
 
@@ -53,10 +55,10 @@ class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vy
 
                         if nalezeni:
                             print("\nVýsledky vyhledávání:")
-                            print(self.evidence_instance.format_header)  # Tiskneme hlavičku a oddělovací čáru
+                            print(Evidence.format_header())  # Tiskneme hlavičku a oddělovací čáru
                             for osoba in nalezeni:
                                 print(self.evidence_instance.format_output(osoba))
-                            print(self.evidence_instance.format_header)  # Tiskneme oddělovací čáru na konci
+                            print("-" * 80)
                         else:
                             print("\nNenalezeno žádné odpovídající záznamy.")
                     break

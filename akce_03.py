@@ -4,7 +4,7 @@ class Akce_03:
 
     def editace(self):
         while True:
-            input_id = input("Zadejte ID číslo (počínaje od 1000): ")
+            input_id = input("Zadejte čtyřmístné ID číslo (nebo zadejte klávesu 'q' pro předešlou nabídku): ")
             if input_id == 'q':
                 return
             elif input_id.isdigit() and len(input_id) == 4 and int(input_id) >= 1000:
@@ -17,7 +17,9 @@ class Akce_03:
                                 "1 - Smazat pojistného\n"
                                 "2 - Editovat pojistného\n"
                             )
-                            vyber_akce = input("Vyberte si akci:   ")
+                            vyber_akce = input("Vyberte si akci (nebo zadejte klávesu 'q' pro předešlou nabídku):   ")
+                            if vyber_akce == 'q':
+                                return
                             if vyber_akce.isdigit() and len(vyber_akce) == 1:
                                 vyber_akce = int(vyber_akce)
                                 if vyber_akce == 1:
@@ -45,6 +47,7 @@ class Akce_03:
                 "3 - Změnit předvolbu\n"
                 "4 - Změnit telefonní číslo\n"
                 "5 - Změnit věk\n"
+                "\n"
                 "q - Konec\n"
             )
             volba_editace = input("Vyberte si akci pro editaci:   ")
@@ -55,14 +58,17 @@ class Akce_03:
                 if 1 <= volba_editace <= 5:
                     if volba_editace == 1:
                         osoba.jmeno = input("Zadejte nové jméno: ")
+                        osoba.jmeno = osoba.jmeno.capitalize()  # Upraví první písmeno na velké, zbytek na malé
                     elif volba_editace == 2:
                         osoba.prijmeni = input("Zadejte nové příjmení: ")
+                        osoba.prijmeni = osoba.prijmeni.capitalize()  # Upraví první písmeno na velké, zbytek na malé
                     elif volba_editace == 3:
                         osoba.predvolba = input("Zadejte novou předvolbu: ")
                     elif volba_editace == 4:
                         osoba.telNumber = input("Zadejte nové telefonní číslo: ")
                     elif volba_editace == 5:
                         osoba.vek = input("Zadejte nový věk: ")
+                    print(self.evidence_instance.format_output(osoba))
                     print("\nÚdaj byl úspěšně změněn.")
                 else:
                     print("Neplatná volba.")
