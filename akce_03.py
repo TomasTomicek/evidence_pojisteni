@@ -1,7 +1,26 @@
 class EditorPojistence:
+    """
+    Třída pro editaci informací o pojištěných osobách.
+
+    Atributy:
+        evidence_instance (Evidence): Instance třídy Evidence pro evidenci pojištěných osob.
+    """
     def __init__(self, evidence_instance):
+        """
+        Inicializuje novou instanci třídy EditorPojistence.
+
+        Args:
+            evidence_instance (Evidence): Instance třídy Evidence pro evidenci pojištěných osob.
+        """
         self.evidence_instance = evidence_instance
+
     def editace(self):
+        """
+        Metoda pro editaci informací o pojištěných osobách.
+
+        Returns:
+            None
+        """
         while True:
             input_id = input("Zadejte čtyřmístné ID číslo (nebo zadejte klávesu 'q' pro předešlou nabídku): ")
             if input_id == 'q':
@@ -38,6 +57,15 @@ class EditorPojistence:
                 print("Neplatný vstup. Zadejte platné ID číslo (počínaje od 1000).")
 
     def editovat_pojistneho(self, osoba):
+        """
+        Metoda pro editaci informací o konkrétní osobě.
+
+        Args:
+            osoba (Pojisteny): Instance třídy Pojisteny, kterou chceme editovat.
+
+        Returns:
+            None
+        """
         while True:
             print("\nEditace pojistného (nezmění se ID číslo):")
             print(

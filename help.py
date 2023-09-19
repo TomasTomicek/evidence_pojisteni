@@ -1,13 +1,28 @@
 from evidence import Evidence
 
 class Help:
+    """
+    Třída poskytující pomoc a vedení pro systém pojišťovnictví.
+
+    Atributy:
+        evidence_instance (Evidence): Instance třídy Evidence.
+    """
     def __init__(self, evidence_instance):
+        """
+        Inicializuje novou instanci třídy Help.
+
+        Args:
+            evidence_instance (Evidence): Instance třídy Evidence.
+        """
         self.evidence_instance = evidence_instance
  #       self.current_ident_number = 1000  # Počáteční hodnota ident_number
         self.vymysleni_pojistenci = []  # Seznam pro dočasné ukládání vytvořených zákazníků
 
     @staticmethod
     def zobraz_napovedu():
+        """
+        Zobrazuje informace o použití systému pojišťovnictví.
+        """
         print("-" * 36 + "  Help  " + "-" * 36)
         print("Vítejte v nápovědě k programu:\n")
         print("{:<10}{:<15}{:<60}".format("", "q", "při použití tohoto znaků vyjedete z nabídky bez jejího uložení"))

@@ -1,12 +1,39 @@
 from evidence import Evidence
-class FiltrPojistence:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vypsat všechny pojištěné
+class FiltrPojistence:
+    """
+    Třída představující reakci na funkci 'spustit_menu' ze souboru hlavnimenu.py pro filtrování a výpis pojištěných.
+
+    Atributy:
+        evidence_instance (Evidence): Instance třídy Evidence pro evidenci pojištěných osob.
+    """
     def __init__(self, evidence_instance):
+        """
+        Inicializuje novou instanci třídy FiltrPojistence.
+
+        Args:
+            evidence_instance (Evidence): Instance třídy Evidence pro evidenci pojištěných osob.
+        """
         self.evidence_instance = evidence_instance
     def vypsat_pojistence(self, status_filter=True):
+        """
+        Vypíše seznam pojištěných osob na základě statusu.
+
+        Args:
+            status_filter (bool): True pro vypsání aktivních pojištěnců, False pro vypsání smazaných.
+
+        Returns:
+            None
+        """
         for osoba in self.evidence_instance.evidence_pojistencu:
             if osoba.status == status_filter:
                 print(self.evidence_instance.format_output(osoba))
     def hledani_pojistence(self):
+        """
+        Metoda pro vyhledávání a filtrování pojištěných osob.
+
+        Returns:
+            None
+        """
         while True:
             print(
                 "Vyber si číslo/parametr, podle kterého budeš hledat:\n"
@@ -23,7 +50,7 @@ class FiltrPojistence:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...
             volba = input("Zde napiš výběr:    ")
             if volba == 'q':
                 return
-            elif volba.isdigit():                # Zpracujte další výběr podle uživatelova vstupu.
+            elif volba.isdigit():  # Zpracujte další výběr podle uživatelova vstupu.
                 volba_akce = int(volba)  # Převedeme vstup na celé číslo.
                 if 0 <= volba_akce <= 6:
                     if volba_akce == 0:
