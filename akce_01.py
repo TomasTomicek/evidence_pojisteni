@@ -1,7 +1,7 @@
 import re  # Modul pro regulární výrazy
 from evidence import Evidence
 # reakce na funkci 'spustit_menu' ze souboru akce.py ...  1 - Přidat nového pojistného
-class Akce_01:
+class NovyPojistenec:
     def __init__(self, evidence_instance):
         self.evidence_instance = evidence_instance
     def pridani_pojistence(self):
@@ -18,7 +18,7 @@ class Akce_01:
             while True:
                 prijmeni = input("Zadejte příjmení: ").lower()
                 if re.match(r'^[a-zá-ž]+$', prijmeni):
-                    prijmeni = jmeno.capitalize()  # Upraví první písmeno na velké, zbytek na malé
+                    prijmeni = prijmeni.capitalize()  # Upraví první písmeno na velké, zbytek na malé
                     break
                 else:
                     print("Neplatný formát příjmení. Zadejte pouze písmena.")
@@ -44,9 +44,8 @@ class Akce_01:
 
             print("-" * 80)
             ident_number = str(self.evidence_instance.current_ident_number)  # Použití aktuálního ident_number
-            nova_osoba = Evidence(jmeno, prijmeni, predvolba, telNumber, vek, ident_number)
-            self.evidence_instance.evidence_pojistencu.append(nova_osoba) # Zapiseme noveho pojistence do seznamu 'evidence_pojistencu' v souboru evidence.py
-            print(self.evidence_instance.format_output(nova_osoba))  # Vypiseme na obrazovku pridaneho noveho pojistence
+            novy_pojisteny = Evidence(jmeno, prijmeni, predvolba, telNumber, vek, ident_number)
+            self.evidence_instance.evidence_pojistencu.append(novy_pojisteny) # Zapiseme noveho pojistence do seznamu 'evidence_pojistencu' v souboru evidence.py
+            print(self.evidence_instance.format_output(novy_pojisteny))  # Vypiseme na obrazovku pridaneho noveho pojistence
             self.evidence_instance.current_ident_number += 1  # Zvýšení aktuálního ident_number pro další záznam
             return False  # Ukončíme program.
-

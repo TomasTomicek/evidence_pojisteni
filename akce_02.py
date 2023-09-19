@@ -1,16 +1,11 @@
 from evidence import Evidence
-
-class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vypsat všechny pojištěné
-
+class FiltrPojistence:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vypsat všechny pojištěné
     def __init__(self, evidence_instance):
         self.evidence_instance = evidence_instance
-
     def vypsat_pojistence(self, status_filter=True):
         for osoba in self.evidence_instance.evidence_pojistencu:
             if osoba.status == status_filter:
                 print(self.evidence_instance.format_output(osoba))
-
-
     def hledani_pojistence(self):
         while True:
             print(
@@ -26,7 +21,6 @@ class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vy
                 "q - Konec"
             )
             volba = input("Zde napiš výběr:    ")
-
             if volba == 'q':
                 return
             elif volba.isdigit():                # Zpracujte další výběr podle uživatelova vstupu.
@@ -40,7 +34,6 @@ class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vy
                         filtr = input(
                             "Zadej filtr: ").lower()  # Převedeme filtr na malá písmena pro nesensitive porovnání
                         nalezeni = []
-
                         for osoba in self.evidence_instance.evidence_pojistencu:
                             if volba_akce == 2 and filtr in osoba.jmeno.lower():
                                 nalezeni.append(osoba)
@@ -52,7 +45,6 @@ class Akce_02:  # reakce na funkci 'spustit_menu' ze souboru akce.py ...  2 - Vy
                                 nalezeni.append(osoba)
                             elif volba_akce == 6 and filtr in osoba.vek:
                                 nalezeni.append(osoba)
-
                         if nalezeni:
                             print("\nVýsledky vyhledávání:")
                             print(Evidence.format_header())  # Tiskneme hlavičku a oddělovací čáru

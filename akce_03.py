@@ -1,7 +1,6 @@
-class Akce_03:
+class EditorPojistence:
     def __init__(self, evidence_instance):
         self.evidence_instance = evidence_instance
-
     def editace(self):
         while True:
             input_id = input("Zadejte čtyřmístné ID číslo (nebo zadejte klávesu 'q' pro předešlou nabídku): ")
@@ -17,14 +16,14 @@ class Akce_03:
                                 "1 - Smazat pojistného\n"
                                 "2 - Editovat pojistného\n"
                             )
-                            vyber_akce = input("Vyberte si akci (nebo zadejte klávesu 'q' pro předešlou nabídku):   ")
-                            if vyber_akce == 'q':
+                            menu_EditorPojistence = input("Vyberte si akci (nebo zadejte klávesu 'q' pro předešlou nabídku):   ")
+                            if menu_EditorPojistence == 'q':
                                 return
-                            if vyber_akce.isdigit() and len(vyber_akce) == 1:
-                                vyber_akce = int(vyber_akce)
-                                if vyber_akce == 1:
+                            if menu_EditorPojistence.isdigit() and len(menu_EditorPojistence) == 1:
+                                menu_EditorPojistence = int(menu_EditorPojistence)
+                                if menu_EditorPojistence == 1:
                                     osoba.status = False
-                                elif vyber_akce == 2:
+                                elif menu_EditorPojistence == 2:
                                     self.editovat_pojistneho(osoba)
                                 else:
                                     print("Neplatná volba.")
