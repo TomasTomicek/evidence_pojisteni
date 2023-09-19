@@ -1,5 +1,4 @@
 class Evidence:
-
     def __init__(self, jmeno=None, prijmeni=None, predvolba=None, telNumber=None, vek=None, ident_number=None, status=True, evidence_pojistencu=None):
         self.jmeno = jmeno
         self.prijmeni = prijmeni
